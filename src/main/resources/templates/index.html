@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><title>
+Главная
+</title></head>
+<body>
+
+
+<div th:include="_layout :: head"></div>
+
+<div class="container">
+
+    <div class="row col-md-8 col-md-offset-2">
+    <h2>Мероприятия (всего в базе <span th:text="${#lists.size(event)}"/>) </h2>
+        <a href="/add_advertisment" class="btn btn-primary">Добавить</a>
+    </div>
+
+
+    <div data-th-each="ev : ${event}" class="row col-md-8 col-md-offset-2">
+              <h3 > <span th:text="${ev.description}"/> </h3>
+        <p class="text-info" th:text=" ${ev.date}"/>
+
+    </div>
+
+
+    <div class="row col-md-8 col-md-offset-2">
+    <h4>Мероприятия</h4>
+    <select th:field="*{event}">
+         <option th:each="ev : ${event}"
+            th:value="${ev}"
+            th:text="${ev.description +'  Дата: '+ ev.date}">Wireframe</option>
+    </select>
+
+    </div>
+
+    <div class="row col-md-8 col-md-offset-2">
+    <h4>Сектор</h4>
+    <select th:field="*{sector}">
+        <option th:each="sec : ${sector}"
+                th:value="${sec}"
+                th:text="${sec.name +' - '+ sec.price+' грн.'}">Wireframe</option>
+    </select>
+
+    </div>
+
+</div>
+
+<div th:include="_layout :: foot"></div>
+
+
+</body>
+
+</html>

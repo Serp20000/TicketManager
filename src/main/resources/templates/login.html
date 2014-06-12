@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><title>
+Логин
+</title></head>
+<body>
+
+
+<div th:include="_layout :: head"></div>
+
+<div class="container">
+
+    <div th:if="${param.error}" >
+        Invalid username and password.
+    </div>
+
+    <form th:action="@{/login}" method="post"  style="margin-top:40px;" >
+        <div><label> User E-mail : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+</div>
+
+<div th:include="_layout :: foot"></div>
+
+</body>
+
+</html>
