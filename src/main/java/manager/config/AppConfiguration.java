@@ -7,6 +7,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 @Configuration
 public class AppConfiguration {
 
+
     @Bean
     public javax.sql.DataSource getDataSource() {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
