@@ -1,5 +1,6 @@
 package manager.controllers;
 
+import manager.entities.Event;
 import manager.entities.Sector;
 import manager.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -43,9 +45,9 @@ public class WelcomeController {
     @RequestMapping(value="/")
     public String welcome(Model model) {
 
-        model.addAttribute("event",eventRepository.findAll());
-        List<Sector> sec = sectorRepository.findAllByEvent_id(2);
-        model.addAttribute("sector", sec);
+        model.addAttribute("eventall", eventRepository.findAll());
+        model.addAttribute("event", eventRepository.findAllByData());
+        model.addAttribute("sector", sectorRepository.findAllByEvent_id(1));
         return "index";
     }
 
