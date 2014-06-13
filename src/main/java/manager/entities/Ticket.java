@@ -2,7 +2,9 @@ package manager.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -31,16 +33,31 @@ public class Ticket {
     @JoinColumn(name = "operator_id")
     private Operator operator;
 
-    @NotEmpty
-    @Column(name = "isReserved", nullable = false)
+    @Column(name = "isReserved")
     private boolean isReserved;
+
+    @NotEmpty
+    @Column(name = "TimeStamp", nullable = false)
+    private Date timeStamp = new Date();
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_ID")
     private Client client;
 
-
     public Ticket() {}
+
+    public boolean isReserved() {
+        return isReserved;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public Integer getId() {
         return id;
