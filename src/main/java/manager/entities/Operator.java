@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(schema="public", name = "operator")
@@ -24,6 +25,15 @@ public class Operator {
     @Column(name="surname", nullable = false, length = 20)
     private String surname;
 
+    @Column(name = "isDeleted")
+    private boolean isDeleted;
+
+    @NotEmpty
+    @Column(name = "TimeStamp", nullable = false)
+    private Date timeStamp = new Date();
+
+    @Column(name="description", length = 500)
+    private String description;
 
     @Size(min=3, max=10,
             message="login must be between 3 and 10 characters long.")
@@ -39,24 +49,67 @@ public class Operator {
 
     public Operator(){}
 
+    public Integer getId() {
+        return id;
+    }
 
-    public Integer getId() {return id;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public void setId(Integer id) {this.id = id;}
+    public String getName() {
+        return name;
+    }
 
-    public String getName() {return name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public boolean isDeleted() {
+        return isDeleted;
+    }
 
-    public String getSurname() {return surname;}
+    public void setDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 
-    public void setSurname(String surname) {this.surname = surname;}
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
 
-    public String getLogin() {return login;}
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
-    public void setLogin(String login) {this.login = login;}
+    public String getLogin() {
+        return login;
+    }
 
-    public String getPassword() {return password;}
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
-    public void setPassword(String password) {this.password = password;}
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -14,33 +14,60 @@ public class Event {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "eventType_id")
-    private EventType type;
-
-    @NotEmpty
-    @Column(name="description", nullable = false, length = 500)
+    @Column(name="description", length = 500)
     private String description;
 
     @Column
     private Date date = new Date();
 
+    @Column(name = "isDeleted")
+    private boolean isDeleted;
+
+    @NotEmpty
+    @Column(name = "TimeStamp", nullable = false)
+    private Date timeStamp = new Date();
+
+
     public Event() {
     }
 
-    public Integer getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public void setId(Integer id) {this.id = id;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public EventType getType() {return type;}
+    public String getDescription() {
+        return description;
+    }
 
-    public void setType(EventType type) {this.type = type;}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public String getDescription() {return description;}
+    public Date getDate() {
+        return date;
+    }
 
-    public void setDescription(String description) {this.description = description;}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-    public Date getDate() {return date;}
+    public boolean isDeleted() {
+        return isDeleted;
+    }
 
-    public void setDate(Date date) {this.date = date;}
+    public void setDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 }

@@ -3,6 +3,7 @@ package manager.entities;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(schema="public", name = "client")
@@ -15,15 +16,19 @@ public class Client {
     private Integer id;
 
     @NotEmpty
-    @Column(name="name", nullable = false, length = 20)
+    @Column(name = "name", nullable = false, length = 20)
     private String name;
 
     @NotEmpty
-    @Column(name="surname", nullable = false, length = 20)
-    private String surname;
+    @Column(name = "description", length = 500)
+    private String description;
 
-    @Column(name="phone", length = 15)
-    private String phone;
+    @Column(name = "isDeleted")
+    private boolean isDeleted;
+
+    @NotEmpty
+    @Column(name = "TimeStamp", nullable = false)
+    private Date timeStamp = new Date();
 
     public Client() {
     }
@@ -36,21 +41,35 @@ public class Client {
         this.id = id;
     }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public boolean isDeleted() {
+        return isDeleted;
     }
 
-    public void setSurname(String surname) {
-        this.name = surname;
+    public void setDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
-    public String getPhone() {return phone;}
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
 
-    public void setPhone(String phone) {this.phone = phone;}
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
