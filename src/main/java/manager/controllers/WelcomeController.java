@@ -1,20 +1,10 @@
 package manager.controllers;
 
-import manager.entities.Event;
-import manager.entities.Sector;
 import manager.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import javax.validation.Valid;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
 
 @Controller
 public class WelcomeController {
@@ -24,9 +14,6 @@ public class WelcomeController {
 
     @Autowired
     private EventRepository eventRepository;
-
-    @Autowired
-    private EventTypeRepository eventTypeRepository;
 
     @Autowired
     private OperatorRepository operatorRepository;
