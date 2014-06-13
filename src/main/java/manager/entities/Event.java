@@ -18,7 +18,6 @@ public class Event {
     private String description;
 
     @Column
-    String DATE_FORMAT = "dd-MM-yyyy  hh:mm";
     private Date date = new Date();
 
     @Column(name = "isDeleted")
