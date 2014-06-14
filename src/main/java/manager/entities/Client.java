@@ -1,9 +1,9 @@
 package manager.entities;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.validator.constraints.NotEmpty;
-import javax.persistence.*;
-import java.util.Date;
+        import org.hibernate.annotations.GenericGenerator;
+        import org.hibernate.validator.constraints.NotEmpty;
+        import javax.persistence.*;
+        import java.util.Date;
 
 @Entity
 @Table(schema="public", name = "client")
@@ -16,10 +16,10 @@ public class Client {
     private Integer id;
 
     @NotEmpty
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name", nullable = false, length = 30)
     private String name;
 
-    @NotEmpty
+
     @Column(name = "description", length = 500)
     private String description;
 
