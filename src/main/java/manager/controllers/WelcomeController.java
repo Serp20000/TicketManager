@@ -1,10 +1,18 @@
 package manager.controllers;
 
+import manager.entities.Ticket;
 import manager.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
+
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
 public class WelcomeController {
@@ -39,26 +47,26 @@ public class WelcomeController {
     }
 
 
-    /*@RequestMapping(value="/add_advertisment", method = RequestMethod.GET)
-    public String newAdvertisment(Model model) {
+    @RequestMapping(value="/buy_ticket", method = GET)
+    public String newTicket(Model model) {
 
-        model.addAttribute("ad", new Advertisment());
-        return "advertismentForm";
+        model.addAttribute("buyticket", new Ticket());
+        return "ticketForm";
     }
 
 
-    @RequestMapping(value="/add_advertisment", method = RequestMethod.POST)
-    public String newAdvertisment(@Valid @ModelAttribute("ad") Advertisment ad, BindingResult bindingResult) {
+    @RequestMapping(value="/buy_ticket", method = POST)
+    public String newTicket(@Valid @ModelAttribute("buyticket") Ticket buyticket, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "advertismentForm";
+            return "ticketform";
         }
 
-        advertismentRepository.save(ad);
+        ticketRepository.save(buyticket);
 
-        return "redirect:/";
+        return "index";
     }
-
+/*
     @RequestMapping(value="/delete_advertisment", method = RequestMethod.GET)
     public String deleteAdvertisment(@RequestParam("id") Long id) {
 
@@ -90,7 +98,8 @@ public class WelcomeController {
         userRepository.save(reg);
 
         return "redirect:/";
-    }*/
+    }
+ */
 
 
 }

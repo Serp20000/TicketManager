@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head><title>
 Главная
 </title></head>
@@ -26,12 +27,51 @@
 
     <div class="row col-md-8 col-md-offset-2">
     <h4>Мероприятия</h4>
-    <select th:field="*{event}">
-         <option th:each="ev : ${event}"
-            th:value="${ev}"
-            th:text="${ev.description +'  Дата: '+ ev.date}">Wireframe</option>
-    </select>
 
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="">
+                           Мероприятие 1
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      Описание
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="">
+                            Мероприятие 2
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Описание
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="">
+                            Мероприятие 3
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        описание
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row col-md-8 col-md-offset-2">
@@ -45,6 +85,7 @@
     </div>
 
 </div>
+<div align="center"><a href="/buy_ticket" type="button" class="btn btn-danger">Купить</a> </div>
 
 <div th:include="_layout :: foot"></div>
 
