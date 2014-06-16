@@ -14,7 +14,7 @@
     <h2>Создать объявление</h2>
     <br/>
 
-<form class="form" action="#" th:action="@{/add_advertisment}" th:object="${ad}" method="post">
+<form class="form" action="#" th:action="@{/buy_ticket}" th:object="${buyTicket}" method="post">
     <div class="form-group">
         <label for="title">Заголовок</label>
         <input class="form-control" id="title" type="text" th:field="*{title}" />
