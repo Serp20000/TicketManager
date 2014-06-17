@@ -1,7 +1,7 @@
 package manager.entities;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -23,12 +23,24 @@ public class Event {
     @Column(name = "isDeleted")
     private boolean isDeleted;
 
-    @NotEmpty
-    @Column(name = "TimeStamp", nullable = false)
+    @Column(name = "TimeStamp")
     private Date timeStamp = new Date();
+
+    @JoinColumn(name = "operator_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    Operator operator;
+
 
 
     public Event() {
+    }
+
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
     }
 
     public Integer getId() {

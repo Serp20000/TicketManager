@@ -28,8 +28,7 @@ public class Operator {
     @Column(name = "isDeleted")
     private boolean isDeleted;
 
-    @NotEmpty
-    @Column(name = "TimeStamp", nullable = false)
+    @Column(name = "TimeStamp")
     private Date timeStamp = new Date();
 
     @Column(name="description", length = 500)

@@ -1,7 +1,6 @@
 package manager.entities;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,12 +20,10 @@ public class Ticket {
     @JoinColumn(name = "sector_id")
     private Sector sector;
 
-    @NotEmpty
-    @Column(name = "row", nullable = false)
+    @Column(name = "row")
     private Integer row;
 
-    @NotEmpty
-    @Column(name = "seat", nullable = false)
+    @Column(name = "seat")
     private Integer seat;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -36,14 +33,15 @@ public class Ticket {
     @Column(name = "isReserved")
     private boolean isReserved;
 
-    @NotEmpty
-    @Column(name = "TimeStamp", nullable = false)
+    @Column(name = "TimeStamp")
     private Date timeStamp = new Date();
 
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_ID")
     private Client client;
+
+
 
     public Ticket() {}
 
