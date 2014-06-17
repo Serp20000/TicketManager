@@ -41,7 +41,8 @@ public class WelcomeController {
     @RequestMapping(value="/")
     public String welcome(Model model) {
 
-
+        //ВНИМАНИЕ! ЭТОТ КОД ДЛЯ ЗАПОЛНЕНИЯ БАЗЫ, ДЛЯ ЭТОГО НУЖНО УДАЛИТЬ БАЗУ ЧЕРЕЗ pgAdmin создать заново базу,
+        //запустить программу и несклолько раз нажать refresh в бродилке
         //удалить отсюда
         Operator operator = new Operator();
         operator.setName("User");
