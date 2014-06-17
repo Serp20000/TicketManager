@@ -41,6 +41,8 @@ public class WelcomeController {
     @RequestMapping(value="/")
     public String welcome(Model model) {
 
+
+        //удалить отсюда
         Operator operator = new Operator();
         operator.setName("User");
         operator.setSurname("Userovich");
@@ -84,7 +86,7 @@ public class WelcomeController {
         model.addAttribute("sector", sectorRepository.findAllByEvent_id(1));
         return "index";
     }
-
+    //удалить до сюда
 
     @RequestMapping(value="/buy_ticket", method = GET)
     public String newTicket(Model model) {
